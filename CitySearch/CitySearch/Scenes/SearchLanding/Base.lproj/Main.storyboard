@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eBr-Bq-g8g">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
@@ -13,7 +13,7 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Search Landing View Controller-->
+        <!--CitySearch-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="SearchLandingViewController" customModule="CitySearch" customModuleProvider="target" sceneMemberID="viewController">
@@ -103,7 +103,7 @@
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="5wx-JV-FfO">
                                 <rect key="frame" x="0.0" y="160" width="414" height="702"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="8gv-3n-JPV"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="2Nd-D3-K6g"/>
@@ -126,7 +126,7 @@
                             <constraint firstItem="fvV-qq-cA8" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="hKc-Si-2WV"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="BmK-Hk-b5v"/>
+                    <navigationItem key="navigationItem" title="CitySearch" id="BmK-Hk-b5v"/>
                     <connections>
                         <outlet property="noResultView" destination="IFr-1f-B3g" id="zbx-f8-n7A"/>
                         <outlet property="searchField" destination="67c-G6-USF" id="9Iy-vP-6x8"/>

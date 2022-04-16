@@ -47,9 +47,16 @@ class SearchLandingViewController: UIViewController, SearchLandingViewController
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    setUpTableViewCell()
   }
   
   // MARK: - Event handling
+  
+  private func setUpTableViewCell() {
+    let bundle = Bundle(for: CityTableViewCell.self)
+    let nibName = UINib(nibName: "CityTableViewCell", bundle: bundle)
+    tableView.register(nibName, forCellReuseIdentifier: CityTableViewCell.identifier)
+  }
   
   // MARK: - Display logic
   
@@ -73,6 +80,11 @@ extension SearchLandingViewController: UITableViewDelegate {
 
 extension SearchLandingViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    return UITableViewCell()
+    guard let cell = tableView.dequeueReusableCell(withIdentifier: CityTableViewCell.identifier, for: indexPath) as? CityTableViewCell else {
+      return UITableViewCell()
+    }
+    
+//    cell.updateUI()
+    return cell
   }
 }

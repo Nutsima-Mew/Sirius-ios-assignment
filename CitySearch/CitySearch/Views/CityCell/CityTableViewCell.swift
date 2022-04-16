@@ -8,16 +8,25 @@
 import UIKit
 
 class CityTableViewCell: UITableViewCell {
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
+  
+  public static let identifier = "CityCell"
+  
+  @IBOutlet private weak var city: UILabel!
+  @IBOutlet private weak var lon: UILabel!
+  @IBOutlet private weak var lat: UILabel!
+  @IBOutlet private weak var view: UIView!
+  
+  override func awakeFromNib() {
+    super.awakeFromNib()
+  }
+  
+  override func setSelected(_ selected: Bool, animated: Bool) {
+    super.setSelected(selected, animated: animated)
+  }
+  
+  func updateUI() {
+    city.text = ","
+    lon.text = ""
+    lat.text = ""
+  }
 }
