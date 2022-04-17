@@ -69,6 +69,16 @@ class SearchLandingViewController: UIViewController, SearchLandingViewController
     interactor.getCities(request: request)
   }
   
+  @IBAction private func filterKeyDidChange(_ sender: UITextField) {
+    if sender.text != "" {
+      let request = SearchLanding.Cities.Request(filter: sender.text)
+      interactor.getCities(request: request)
+    } else {
+      let request = SearchLanding.Cities.Request(filter: nil)
+      interactor.getCities(request: request)
+    }
+  }
+  
   // MARK: - Display logic
   
   func displayCities(viewModel: SearchLanding.Cities.ViewModel) {

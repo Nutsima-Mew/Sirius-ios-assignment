@@ -32,6 +32,9 @@
                                                 <color key="textColor" white="0.24270775204613096" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="filterKeyDidChange:" destination="BYZ-38-t0r" eventType="editingChanged" id="cOU-M4-85W"/>
+                                                </connections>
                                             </textField>
                                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="magnifyingglass" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="M8v-Yh-rv5">
                                                 <rect key="frame" x="0.0" y="0.5" width="32" height="38.5"/>

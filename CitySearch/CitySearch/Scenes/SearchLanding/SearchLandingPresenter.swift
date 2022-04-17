@@ -20,7 +20,17 @@ class SearchLandingPresenter: SearchLandingPresenterInterface {
   func presentCities(response: SearchLanding.Cities.Response) {
     switch response.result {
     case .success(let result):
-      let sortedReult = result.sorted {$0.name.lowercased() < $1.name.lowercased()}
+      var cities: [City] = []
+      
+      if let filter = response.filter {
+        let filtered = result.filter({ city in
+          city.name.lowercased().hasPrefix(filter.lowercased())
+        })
+        cities = filtered
+      } else {
+        cities = result
+      }
+      let sortedReult = cities.sorted {$0.name.lowercased() < $1.name.lowercased()}
       let viewModel = SearchLanding.Cities.ViewModel(content: .success(result: sortedReult))
       viewController.displayCities(viewModel: viewModel)
     default:
@@ -29,5 +39,26 @@ class SearchLandingPresenter: SearchLandingPresenterInterface {
     }
   }
   
-  private func sortCityName() {}
+  private func filterCitiesResult(cities: [City], filterKey: String?) -> [City] {
+    let sortedReult = cities.sorted {$0.name.lowercased() < $1.name.lowercased()}
+
+    return sortedReult
+  }
+  
+  func createIndexedListFor(cities: [City], key: String?)  -> [City] {
+    let list = cities.sorted {$0.name.lowercased() < $1.name.lowercased()}
+
+    var indexedList: [City] = []
+
+    for current in list {
+      let currentName = current.name.isEmpty ? "???" : current.name
+      let char = "\(currentName[currentName.startIndex])".uppercased()
+
+      let firstChar = unwrapped(key, with: "")
+      if (current.name.firstIndex(of: Character(firstChar)) != nil) {
+        indexedList.append(current)
+      }
+    }
+    return indexedList
+  }
 }
