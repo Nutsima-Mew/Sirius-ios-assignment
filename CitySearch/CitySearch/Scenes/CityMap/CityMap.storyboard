@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--City Map View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="CityMap" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="CityMapViewController" customModule="CitySearch" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="UCv-Uz-uFB">
+                                <rect key="frame" x="25" y="104" width="364" height="450"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="450" id="UMQ-YL-qnH"/>
+                                </constraints>
+                            </mapView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City, Country" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pg4-bw-LQ7">
+                                <rect key="frame" x="0.0" y="62" width="414" height="24"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Longitude:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PJD-X3-2kO">
+                                <rect key="frame" x="25" y="579" width="77" height="19.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Latitude:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WM5-om-aEk">
+                                <rect key="frame" x="25" y="606.5" width="64" height="19.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="UCv-Uz-uFB" secondAttribute="trailing" constant="25" id="9f6-z3-CMz"/>
+                            <constraint firstItem="WM5-om-aEk" firstAttribute="top" secondItem="PJD-X3-2kO" secondAttribute="bottom" constant="8" id="FxP-LC-XME"/>
+                            <constraint firstItem="pg4-bw-LQ7" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Kkc-kl-h7u"/>
+                            <constraint firstItem="PJD-X3-2kO" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="25" id="QIS-Fw-8qD"/>
+                            <constraint firstItem="UCv-Uz-uFB" firstAttribute="top" secondItem="pg4-bw-LQ7" secondAttribute="bottom" constant="18" id="aLX-Le-c3f"/>
+                            <constraint firstItem="WM5-om-aEk" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="25" id="pzZ-gD-AkQ"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="pg4-bw-LQ7" secondAttribute="trailing" id="qdd-lG-2dn"/>
+                            <constraint firstItem="pg4-bw-LQ7" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="18" id="v2b-LB-j9a"/>
+                            <constraint firstItem="UCv-Uz-uFB" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="25" id="x8t-ed-yGI"/>
+                            <constraint firstItem="PJD-X3-2kO" firstAttribute="top" secondItem="UCv-Uz-uFB" secondAttribute="bottom" constant="25" id="xnX-rZ-NrC"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="map" destination="UCv-Uz-uFB" id="Dus-oJ-HTX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-394" y="41"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

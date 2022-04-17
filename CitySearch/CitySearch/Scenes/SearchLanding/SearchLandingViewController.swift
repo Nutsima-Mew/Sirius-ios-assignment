@@ -102,6 +102,7 @@ class SearchLandingViewController: UIViewController, SearchLandingViewController
 extension SearchLandingViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
+    router.navigateToCityMap(city: cities[indexPath.row])
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

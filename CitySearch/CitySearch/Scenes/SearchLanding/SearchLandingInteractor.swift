@@ -10,11 +10,14 @@ import UIKit
 
 protocol SearchLandingInteractorInterface {
   func getCities(request: SearchLanding.Cities.Request)
+  
+  var city: City? {get set}
 }
 
 class SearchLandingInteractor: SearchLandingInteractorInterface {
   var presenter: SearchLandingPresenterInterface!
   var worker: CityWorker!
+  var city: City?
 
   // MARK: - Business logic
   

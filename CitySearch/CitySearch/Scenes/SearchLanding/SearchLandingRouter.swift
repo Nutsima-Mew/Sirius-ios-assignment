@@ -9,12 +9,17 @@
 import UIKit
 
 protocol SearchLandingRouterInterface {
-  
+  func navigateToCityMap(city: City)
 }
 
 class SearchLandingRouter: SearchLandingRouterInterface {
   weak var viewController: SearchLandingViewController!
-
+  
   // MARK: - Navigation
-
+  func navigateToCityMap(city: City) {
+    let storyBoard: UIStoryboard = UIStoryboard(name: "CityMap", bundle: nil)
+    let destinationVC = storyBoard.instantiateViewController(withIdentifier: "CityMap") as! CityMapViewController
+    viewController.interactor.city = city
+    viewController.navigationController?.pushViewController(destinationVC, animated: true)
+  }
 }

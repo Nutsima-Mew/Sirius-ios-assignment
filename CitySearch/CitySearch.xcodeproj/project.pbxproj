@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		4926CB16280BE80000094BEB /* cities.json in Resources */ = {isa = PBXBuildFile; fileRef = 4926CB15280BE80000094BEB /* cities.json */; };
+		49BB77D7280C22520047A925 /* CityMapPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BB77D2280C22520047A925 /* CityMapPresenter.swift */; };
+		49BB77D8280C22520047A925 /* CityMapRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BB77D3280C22520047A925 /* CityMapRouter.swift */; };
+		49BB77D9280C22520047A925 /* CityMapModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BB77D4280C22520047A925 /* CityMapModels.swift */; };
+		49BB77DA280C22520047A925 /* CityMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BB77D5280C22520047A925 /* CityMapViewController.swift */; };
+		49BB77DB280C22520047A925 /* CityMapInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BB77D6280C22520047A925 /* CityMapInteractor.swift */; };
+		49BB77DD280C22640047A925 /* CityMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49BB77DC280C22630047A925 /* CityMap.storyboard */; };
 		49EBA99E280A9CEA0086C4C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EBA99D280A9CEA0086C4C0 /* AppDelegate.swift */; };
 		49EBA9A0280A9CEA0086C4C0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EBA99F280A9CEA0086C4C0 /* SceneDelegate.swift */; };
 		49EBA9A5280A9CEA0086C4C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49EBA9A3280A9CEA0086C4C0 /* Main.storyboard */; };
@@ -49,6 +55,12 @@
 
 /* Begin PBXFileReference section */
 		4926CB15280BE80000094BEB /* cities.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cities.json; sourceTree = "<group>"; };
+		49BB77D2280C22520047A925 /* CityMapPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityMapPresenter.swift; sourceTree = "<group>"; };
+		49BB77D3280C22520047A925 /* CityMapRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityMapRouter.swift; sourceTree = "<group>"; };
+		49BB77D4280C22520047A925 /* CityMapModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityMapModels.swift; sourceTree = "<group>"; };
+		49BB77D5280C22520047A925 /* CityMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityMapViewController.swift; sourceTree = "<group>"; };
+		49BB77D6280C22520047A925 /* CityMapInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityMapInteractor.swift; sourceTree = "<group>"; };
+		49BB77DC280C22630047A925 /* CityMap.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CityMap.storyboard; sourceTree = "<group>"; };
 		49EBA99A280A9CEA0086C4C0 /* CitySearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CitySearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49EBA99D280A9CEA0086C4C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		49EBA99F280A9CEA0086C4C0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +118,19 @@
 				4926CB15280BE80000094BEB /* cities.json */,
 			);
 			path = Resource;
+			sourceTree = "<group>";
+		};
+		49BB77D1280C221F0047A925 /* CityMap */ = {
+			isa = PBXGroup;
+			children = (
+				49BB77D3280C22520047A925 /* CityMapRouter.swift */,
+				49BB77D4280C22520047A925 /* CityMapModels.swift */,
+				49BB77D2280C22520047A925 /* CityMapPresenter.swift */,
+				49BB77D6280C22520047A925 /* CityMapInteractor.swift */,
+				49BB77D5280C22520047A925 /* CityMapViewController.swift */,
+				49BB77DC280C22630047A925 /* CityMap.storyboard */,
+			);
+			path = CityMap;
 			sourceTree = "<group>";
 		};
 		49EBA991280A9CEA0086C4C0 = {
@@ -186,6 +211,7 @@
 		49EBA9D9280B23040086C4C0 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				49BB77D1280C221F0047A925 /* CityMap */,
 				49EBA9CD280A9E5C0086C4C0 /* SearchLanding */,
 			);
 			path = Scenes;
@@ -333,6 +359,7 @@
 			files = (
 				49EBA9AA280A9CEC0086C4C0 /* LaunchScreen.storyboard in Resources */,
 				4926CB16280BE80000094BEB /* cities.json in Resources */,
+				49BB77DD280C22640047A925 /* CityMap.storyboard in Resources */,
 				49EBA9A7280A9CEC0086C4C0 /* Assets.xcassets in Resources */,
 				49EBA9DE280B24510086C4C0 /* CityTableViewCell.xib in Resources */,
 				49EBA9A5280A9CEA0086C4C0 /* Main.storyboard in Resources */,
@@ -361,18 +388,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				49EBA9D5280A9F8B0086C4C0 /* SearchLandingModels.swift in Sources */,
+				49BB77DB280C22520047A925 /* CityMapInteractor.swift in Sources */,
 				49EBA9E6280B2DC60086C4C0 /* CityWorker.swift in Sources */,
 				49EBA9D6280A9F8B0086C4C0 /* SearchLandingViewController.swift in Sources */,
+				49BB77D7280C22520047A925 /* CityMapPresenter.swift in Sources */,
 				49EBA9ED280BC1F70086C4C0 /* Unwrapper.swift in Sources */,
 				49EBA99E280A9CEA0086C4C0 /* AppDelegate.swift in Sources */,
+				49BB77D8280C22520047A925 /* CityMapRouter.swift in Sources */,
 				49EBA9E9280B2FC10086C4C0 /* Error.swift in Sources */,
 				49EBA9D4280A9F8B0086C4C0 /* SearchLandingRouter.swift in Sources */,
 				49EBA9D3280A9F8B0086C4C0 /* SearchLandingPresenter.swift in Sources */,
 				49EBA9D7280A9F8B0086C4C0 /* SearchLandingInteractor.swift in Sources */,
 				49EBA9DD280B24510086C4C0 /* CityTableViewCell.swift in Sources */,
+				49BB77DA280C22520047A925 /* CityMapViewController.swift in Sources */,
 				49EBA9EF280BC2130086C4C0 /* UIView.swift in Sources */,
 				49EBA9E2280B2D990086C4C0 /* City.swift in Sources */,
 				49EBA9E4280B2DB60086C4C0 /* CityStore.swift in Sources */,
+				49BB77D9280C22520047A925 /* CityMapModels.swift in Sources */,
 				49EBA9A0280A9CEA0086C4C0 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

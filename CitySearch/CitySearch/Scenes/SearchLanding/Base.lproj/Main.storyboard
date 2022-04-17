@@ -129,7 +129,9 @@
                             <constraint firstItem="fvV-qq-cA8" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="hKc-Si-2WV"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="CitySearch" id="BmK-Hk-b5v"/>
+                    <navigationItem key="navigationItem" title="CitySearch" id="BmK-Hk-b5v">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="5bM-Cy-iiY"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="noResultView" destination="IFr-1f-B3g" id="zbx-f8-n7A"/>
                         <outlet property="searchField" destination="67c-G6-USF" id="9Iy-vP-6x8"/>
