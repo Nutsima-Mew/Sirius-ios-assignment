@@ -14,11 +14,20 @@ protocol SearchLandingPresenterInterface {
 
 class SearchLandingPresenter: SearchLandingPresenterInterface {
   weak var viewController: SearchLandingViewControllerInterface!
-
+  
   // MARK: - Presentation logic
   
   func presentCities(response: SearchLanding.Cities.Response) {
-    let viewModel = SearchLanding.Cities.ViewModel(content: response.result)
-    viewController.displayCities(viewModel: viewModel)
+    switch response.result {
+    case .success(let result):
+      let sortedReult = result.sorted {$0.name.lowercased() < $1.name.lowercased()}
+      let viewModel = SearchLanding.Cities.ViewModel(content: .success(result: sortedReult))
+      viewController.displayCities(viewModel: viewModel)
+    default:
+      let viewModel = SearchLanding.Cities.ViewModel(content: .failure(error: .invalidJSON))
+      viewController.displayCities(viewModel: viewModel)
+    }
   }
+  
+  private func sortCityName() {}
 }
