@@ -11,14 +11,15 @@ import UIKit
 struct SearchLanding {
   
   struct Cities {
-    struct Request {}
-    struct Response {}
-    struct ViewModel {}
-  }
-  
-  struct Search {
-    struct Request {}
-    struct Response {}
-    struct ViewModel {}
+    struct Request {
+      let filter: String?
+    }
+    struct Response {
+      var result: Result<[City]>
+      let filter: String?
+    }
+    struct ViewModel {
+      var content: Result<[City]>
+    }
   }
 }

@@ -9,7 +9,7 @@
 import UIKit
 
 protocol SearchLandingViewControllerInterface: AnyObject {
-  
+  func displayCities(viewModel: SearchLanding.Cities.ViewModel)
 }
 
 class SearchLandingViewController: UIViewController, SearchLandingViewControllerInterface {
@@ -19,6 +19,8 @@ class SearchLandingViewController: UIViewController, SearchLandingViewController
   @IBOutlet private weak var tableView: UITableView!
   @IBOutlet private weak var noResultView: UIView!
   @IBOutlet private weak var searchField: UITextField!
+  
+  var cities: [City] = []
   
   // MARK: - Object lifecycle
   
@@ -39,6 +41,9 @@ class SearchLandingViewController: UIViewController, SearchLandingViewController
     let interactor = SearchLandingInteractor()
     interactor.presenter = presenter
     
+    let worker = CityWorker(store: CityStore())
+    interactor.worker = worker
+    
     viewController.interactor = interactor
     viewController.router = router
   }
@@ -48,6 +53,7 @@ class SearchLandingViewController: UIViewController, SearchLandingViewController
   override func viewDidLoad() {
     super.viewDidLoad()
     setUpTableViewCell()
+    getCities()
   }
   
   // MARK: - Event handling
@@ -58,7 +64,26 @@ class SearchLandingViewController: UIViewController, SearchLandingViewController
     tableView.register(nibName, forCellReuseIdentifier: CityTableViewCell.identifier)
   }
   
+  func getCities() {
+    let request = SearchLanding.Cities.Request(filter: nil)
+    interactor.getCities(request: request)
+  }
+  
   // MARK: - Display logic
+  
+  func displayCities(viewModel: SearchLanding.Cities.ViewModel) {
+    switch viewModel.content {
+    case .success(let result):
+      cities = result
+      noResultView.isHidden = true
+      tableView.isHidden = false
+    case .failure(_):
+      noResultView.isHidden = false
+      tableView.isHidden = true
+    }
+    
+    tableView.reloadData()
+  }
   
   // MARK: - Router
   
@@ -70,7 +95,7 @@ extension SearchLandingViewController: UITableViewDelegate {
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 2
+    return cities.count
   }
   
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -84,7 +109,7 @@ extension SearchLandingViewController: UITableViewDataSource {
       return UITableViewCell()
     }
     
-//    cell.updateUI()
+    cell.updateUI(data: cities[indexPath.row])
     return cell
   }
 }

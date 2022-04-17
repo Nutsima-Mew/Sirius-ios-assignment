@@ -9,12 +9,19 @@
 import UIKit
 
 protocol SearchLandingInteractorInterface {
-
+  func getCities(request: SearchLanding.Cities.Request)
 }
 
 class SearchLandingInteractor: SearchLandingInteractorInterface {
   var presenter: SearchLandingPresenterInterface!
+  var worker: CityWorker!
 
   // MARK: - Business logic
-
+  
+  func getCities(request: SearchLanding.Cities.Request) {
+    worker.getCity { [weak self] result in
+      let response = SearchLanding.Cities.Response(result: result, filter: request.filter)
+      self?.presenter.presentCities(response: response)
+    }
+  }
 }

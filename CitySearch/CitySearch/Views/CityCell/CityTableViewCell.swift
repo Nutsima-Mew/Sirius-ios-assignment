@@ -24,9 +24,14 @@ class CityTableViewCell: UITableViewCell {
     super.setSelected(selected, animated: animated)
   }
   
-  func updateUI() {
-    city.text = ","
-    lon.text = ""
-    lat.text = ""
+  func updateUI(data: City) {
+    let cityName = data.name
+    let countryName = data.country
+    let Longitude = data.coord.lon
+    let Latitude = data.coord.lat
+    
+    city.text = "\(cityName), \(countryName)"
+    lon.text = "Longitude: \(Longitude)"
+    lat.text = "Latitude: \(Latitude)"
   }
 }
