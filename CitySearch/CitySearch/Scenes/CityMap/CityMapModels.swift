@@ -9,13 +9,14 @@
 import UIKit
 
 struct CityMap {
-  /// This structure represents a use case
-  struct Something {
-    /// Data struct sent to Interactor
+
+  struct CityInfo {
     struct Request {}
-    /// Data struct sent to Presenter
-    struct Response {}
-    /// Data struct sent to ViewController
-    struct ViewModel {}
+    struct Response {
+      let info: City
+    }
+    struct ViewModel {
+      let info: City
+    }
   }
 }

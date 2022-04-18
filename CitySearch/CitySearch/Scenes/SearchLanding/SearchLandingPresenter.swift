@@ -44,21 +44,4 @@ class SearchLandingPresenter: SearchLandingPresenterInterface {
 
     return sortedReult
   }
-  
-  func createIndexedListFor(cities: [City], key: String?)  -> [City] {
-    let list = cities.sorted {$0.name.lowercased() < $1.name.lowercased()}
-
-    var indexedList: [City] = []
-
-    for current in list {
-      let currentName = current.name.isEmpty ? "???" : current.name
-      let char = "\(currentName[currentName.startIndex])".uppercased()
-
-      let firstChar = unwrapped(key, with: "")
-      if (current.name.firstIndex(of: Character(firstChar)) != nil) {
-        indexedList.append(current)
-      }
-    }
-    return indexedList
-  }
 }

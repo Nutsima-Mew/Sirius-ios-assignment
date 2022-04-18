@@ -19,7 +19,7 @@ class SearchLandingRouter: SearchLandingRouterInterface {
   func navigateToCityMap(city: City) {
     let storyBoard: UIStoryboard = UIStoryboard(name: "CityMap", bundle: nil)
     let destinationVC = storyBoard.instantiateViewController(withIdentifier: "CityMap") as! CityMapViewController
-    viewController.interactor.city = city
+    destinationVC.interactor.city = city
     viewController.navigationController?.pushViewController(destinationVC, animated: true)
   }
 }

@@ -9,13 +9,23 @@
 import UIKit
 
 protocol CityMapInteractorInterface {
-
+  func getCityInfo(request: CityMap.CityInfo.Request)
+  
+  var city: City? {get set}
 }
 
 class CityMapInteractor: CityMapInteractorInterface {
   var presenter: CityMapPresenterInterface!
-
+  var city: City?
 
   // MARK: - Business logic
-
+  
+  func getCityInfo(request: CityMap.CityInfo.Request) {
+    guard let city = city else {
+      return
+    }
+    
+    let response = CityMap.CityInfo.Response(info: city)
+    presenter.presentCityInfo(response: response)
+  }
 }
