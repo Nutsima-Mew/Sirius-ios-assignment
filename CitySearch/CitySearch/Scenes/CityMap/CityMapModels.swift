@@ -11,10 +11,13 @@ import UIKit
 struct CityMap {
 
   struct CityInfo {
-    struct Request {}
+    struct Request {
+    }
+    
     struct Response {
       let info: City
     }
+    
     struct ViewModel {
       let info: City
     }

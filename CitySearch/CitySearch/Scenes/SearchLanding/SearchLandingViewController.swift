@@ -18,7 +18,7 @@ class SearchLandingViewController: UIViewController, SearchLandingViewController
   
   @IBOutlet private weak var tableView: UITableView!
   @IBOutlet private weak var noResultView: UIView!
-  @IBOutlet private weak var searchField: UITextField!
+  @IBOutlet private weak var searchBar: UISearchBar!
   
   var cities: [City] = []
   
@@ -69,34 +69,24 @@ class SearchLandingViewController: UIViewController, SearchLandingViewController
     interactor.getCities(request: request)
   }
   
-  @IBAction private func filterKeyDidChange(_ sender: UITextField) {
-    if sender.text != "" {
-      let request = SearchLanding.Cities.Request(filter: sender.text)
-      interactor.getCities(request: request)
-    } else {
-      let request = SearchLanding.Cities.Request(filter: nil)
-      interactor.getCities(request: request)
-    }
-  }
-  
   // MARK: - Display logic
   
   func displayCities(viewModel: SearchLanding.Cities.ViewModel) {
-    switch viewModel.content {
-    case .success(let result):
-      cities = result
-      noResultView.isHidden = true
-      tableView.isHidden = false
-    case .failure(_):
-      noResultView.isHidden = false
-      tableView.isHidden = true
-    }
     
-    tableView.reloadData()
+    DispatchQueue.main.async { [weak self] in
+      switch viewModel.content {
+      case .success(let result):
+        self?.cities = result
+        self?.noResultView.isHidden = true
+        self?.tableView.isHidden = false
+      case .failure(_):
+        self?.noResultView.isHidden = false
+        self?.tableView.isHidden = true
+      }
+      
+      self?.tableView.reloadData()
+    }
   }
-  
-  // MARK: - Router
-  
 }
 
 extension SearchLandingViewController: UITableViewDelegate {
@@ -122,5 +112,17 @@ extension SearchLandingViewController: UITableViewDataSource {
     
     cell.updateUI(data: cities[indexPath.row])
     return cell
+  }
+}
+
+extension SearchLandingViewController: UISearchBarDelegate {
+  func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+    if searchText != "" {
+      let request = SearchLanding.Cities.Request(filter: searchText)
+      interactor.getSearchResult(request: request)
+    } else {
+      let request = SearchLanding.Cities.Request(filter: nil)
+      interactor.getSearchResult(request: request)
+    }
   }
 }

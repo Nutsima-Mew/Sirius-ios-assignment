@@ -30,18 +30,12 @@ class SearchLandingPresenter: SearchLandingPresenterInterface {
       } else {
         cities = result
       }
-      let sortedReult = cities.sorted {$0.name.lowercased() < $1.name.lowercased()}
-      let viewModel = SearchLanding.Cities.ViewModel(content: .success(result: sortedReult))
+
+      let viewModel = SearchLanding.Cities.ViewModel(content: .success(result: cities))
       viewController.displayCities(viewModel: viewModel)
     default:
       let viewModel = SearchLanding.Cities.ViewModel(content: .failure(error: .invalidJSON))
       viewController.displayCities(viewModel: viewModel)
     }
-  }
-  
-  private func filterCitiesResult(cities: [City], filterKey: String?) -> [City] {
-    let sortedReult = cities.sorted {$0.name.lowercased() < $1.name.lowercased()}
-
-    return sortedReult
   }
 }

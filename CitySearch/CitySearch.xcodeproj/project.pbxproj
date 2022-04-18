@@ -32,8 +32,6 @@
 		49EBA9E4280B2DB60086C4C0 /* CityStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EBA9E3280B2DB60086C4C0 /* CityStore.swift */; };
 		49EBA9E6280B2DC60086C4C0 /* CityWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EBA9E5280B2DC60086C4C0 /* CityWorker.swift */; };
 		49EBA9E9280B2FC10086C4C0 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EBA9E8280B2FC10086C4C0 /* Error.swift */; };
-		49EBA9ED280BC1F70086C4C0 /* Unwrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EBA9EC280BC1F70086C4C0 /* Unwrapper.swift */; };
-		49EBA9EF280BC2130086C4C0 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EBA9EE280BC2130086C4C0 /* UIView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,8 +81,6 @@
 		49EBA9E3280B2DB60086C4C0 /* CityStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityStore.swift; sourceTree = "<group>"; };
 		49EBA9E5280B2DC60086C4C0 /* CityWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityWorker.swift; sourceTree = "<group>"; };
 		49EBA9E8280B2FC10086C4C0 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
-		49EBA9EC280BC1F70086C4C0 /* Unwrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unwrapper.swift; sourceTree = "<group>"; };
-		49EBA9EE280BC2130086C4C0 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -247,8 +243,6 @@
 			isa = PBXGroup;
 			children = (
 				49EBA9E8280B2FC10086C4C0 /* Error.swift */,
-				49EBA9EC280BC1F70086C4C0 /* Unwrapper.swift */,
-				49EBA9EE280BC2130086C4C0 /* UIView.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -392,7 +386,6 @@
 				49EBA9E6280B2DC60086C4C0 /* CityWorker.swift in Sources */,
 				49EBA9D6280A9F8B0086C4C0 /* SearchLandingViewController.swift in Sources */,
 				49BB77D7280C22520047A925 /* CityMapPresenter.swift in Sources */,
-				49EBA9ED280BC1F70086C4C0 /* Unwrapper.swift in Sources */,
 				49EBA99E280A9CEA0086C4C0 /* AppDelegate.swift in Sources */,
 				49BB77D8280C22520047A925 /* CityMapRouter.swift in Sources */,
 				49EBA9E9280B2FC10086C4C0 /* Error.swift in Sources */,
@@ -401,7 +394,6 @@
 				49EBA9D7280A9F8B0086C4C0 /* SearchLandingInteractor.swift in Sources */,
 				49EBA9DD280B24510086C4C0 /* CityTableViewCell.swift in Sources */,
 				49BB77DA280C22520047A925 /* CityMapViewController.swift in Sources */,
-				49EBA9EF280BC2130086C4C0 /* UIView.swift in Sources */,
 				49EBA9E2280B2D990086C4C0 /* City.swift in Sources */,
 				49EBA9E4280B2DB60086C4C0 /* CityStore.swift in Sources */,
 				49BB77D9280C22520047A925 /* CityMapModels.swift in Sources */,

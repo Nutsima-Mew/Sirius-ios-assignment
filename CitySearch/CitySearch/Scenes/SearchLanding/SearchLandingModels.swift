@@ -14,10 +14,12 @@ struct SearchLanding {
     struct Request {
       let filter: String?
     }
+    
     struct Response {
       var result: Result<[City]>
       let filter: String?
     }
+    
     struct ViewModel {
       var content: Result<[City]>
     }
